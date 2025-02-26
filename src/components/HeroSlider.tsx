@@ -25,7 +25,15 @@ const slides = [
 
 const HeroSlider = () => {
   return (
-    <Box sx={{ width: "100%", maxWidth: "100%", overflow: "hidden" }}>
+    <Box
+      sx={{
+        width: "100%",
+        maxWidth: "100%",
+        overflow: "hidden",
+        marginTop: "100px",
+        position: "relative",
+      }}
+    >
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation

@@ -252,7 +252,12 @@ export default function Home() {
         </Typography>
 
         <Grid container justifyContent="center">
-          <Button variant="contained" color="primary" size="large">
+          <Button
+            variant="contained"
+            style={{ backgroundColor: "#3e767e" }}
+            color="primary"
+            size="large"
+          >
             Get a Free Quote
           </Button>
         </Grid>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 import {
   AppBar,
   Toolbar,
@@ -17,10 +17,15 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 
-const Layout = ({ children }) => {
+// Define props for TypeScript
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Detect if screen is below 614px
+  // Detect if screen width is below 614px
   const isMobile = useMediaQuery("(max-width: 614px)");
 
   const handleDrawerToggle = () => {
@@ -38,8 +43,8 @@ const Layout = ({ children }) => {
     <>
       {/* Navbar */}
       <AppBar
-        position="static"
-        sx={{ backgroundColor: "#0D47A1", padding: "10px 0" }}
+        position="fixed"
+        sx={{ backgroundColor: "#3e767e", padding: "10px 0" }}
       >
         <Toolbar
           sx={{
@@ -50,12 +55,12 @@ const Layout = ({ children }) => {
         >
           {/* Logo */}
           <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>
-            <Link
-              href="/"
-              passHref
-              style={{ textDecoration: "none", color: "#fff" }}
-            >
-              Gs RoofCare
+            <Link href="/" style={{ textDecoration: "none", color: "#fff" }}>
+              <img
+                src="/gsroofcarelogo2.png"
+                alt="GS Roof Care Logo"
+                style={{ height: "5rem" }}
+              />
             </Link>
           </Typography>
 
@@ -68,35 +73,14 @@ const Layout = ({ children }) => {
             /* Desktop Navigation */
             <Box sx={{ display: "flex", gap: 2 }}>
               {navItems.map((item) => (
-                <Button color="inherit" key={item.label}>
-                  <Link
-                    href={item.path}
-                    passHref
-                    style={{ textDecoration: "none", color: "#fff" }}
-                  >
-                    {item.label}
-                  </Link>
-                </Button>
-              ))}
-            </Box>
-          )}
-
-          {/* Auth Buttons (Always Visible) */}
-          {!isMobile && (
-            <Box sx={{ display: "flex", gap: 2 }}>
-              <Link href="/login" passHref>
-                <Button
-                  variant="outlined"
-                  sx={{ color: "#fff", borderColor: "#fff" }}
+                <Link
+                  key={item.label}
+                  href={item.path}
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  Login
-                </Button>
-              </Link>
-              <Link href="/signup" passHref>
-                <Button variant="contained" sx={{ backgroundColor: "#FFA000" }}>
-                  Sign Up
-                </Button>
-              </Link>
+                  <Button color="inherit">{item.label}</Button>
+                </Link>
+              ))}
             </Box>
           )}
         </Toolbar>
@@ -110,7 +94,7 @@ const Layout = ({ children }) => {
         sx={{
           "& .MuiDrawer-paper": {
             width: "250px",
-            backgroundColor: "#0D47A1",
+            backgroundColor: "#3e767e",
             color: "#fff",
           },
         }}
@@ -121,7 +105,6 @@ const Layout = ({ children }) => {
               <ListItemButton onClick={handleDrawerToggle}>
                 <Link
                   href={item.path}
-                  passHref
                   style={{
                     textDecoration: "none",
                     color: "#fff",
@@ -139,33 +122,23 @@ const Layout = ({ children }) => {
           <ListItem disablePadding>
             <ListItemButton onClick={handleDrawerToggle}>
               <Link
-                href="/login"
-                passHref
+                href=""
                 style={{ textDecoration: "none", color: "#fff", width: "100%" }}
               >
-                <ListItemText primary="Login" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton onClick={handleDrawerToggle}>
-              <Link
-                href="/signup"
-                passHref
-                style={{ textDecoration: "none", color: "#fff", width: "100%" }}
-              >
-                <ListItemText primary="Sign Up" />
+                <ListItemText primary="Call Now" />
               </Link>
             </ListItemButton>
           </ListItem>
         </List>
       </Drawer>
 
-      {/* Main Content */}
+      {/* Main Content with Spacing Fix */}
       <main style={{ padding: "10px" }}>{children}</main>
+
+      {/* Footer */}
       <Box
         sx={{
-          backgroundColor: "#0d47a1",
+          backgroundColor: "#3e767e",
           color: "white",
           textAlign: "center",
           p: 2,
