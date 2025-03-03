@@ -133,7 +133,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </Drawer>
 
       {/* Main Content with Spacing Fix */}
-      <main style={{ padding: "10px" }}>{children}</main>
+      <main style={{ paddingTop: "4px" }}>{children}</main>
 
       {/* Footer */}
       <Box

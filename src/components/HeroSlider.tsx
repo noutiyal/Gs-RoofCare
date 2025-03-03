@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -32,15 +32,15 @@ const HeroSlider = () => {
         overflow: "hidden",
         marginTop: "100px",
         position: "relative",
+        padding: "0px",
       }}
     >
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
+        modules={[Autoplay]} // Removed Navigation module
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
         loop={true}
-        style={{ width: "100%", height: "400px" }}
+        style={{ width: "100%", height: "500px" }}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
@@ -49,13 +49,14 @@ const HeroSlider = () => {
                 backgroundImage: slide.image ? `url(${slide.image})` : "none",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                height: "400px",
+                height: "500px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 position: "relative",
                 color: "#fff",
               }}
+              className="custom-swiper"
             >
               {/* Dark Overlay */}
               <Box
