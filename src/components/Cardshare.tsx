@@ -9,6 +9,11 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 
+interface FlippingCardProps {
+  frontImage: string;
+  frontText: string;
+  backContent: string;
+}
 const FlippingCardContainer = styled(Box)(({ theme }) => ({
   width: "100%",
   maxWidth: 370,
@@ -54,7 +59,11 @@ const CardBack = styled(CardFace)({
   transform: "rotateY(180deg)",
 });
 
-const FlippingCard = ({ frontImage, frontText, backContent }) => {
+const FlippingCard: React.FC<FlippingCardProps> = ({
+  frontImage,
+  frontText,
+  backContent,
+}) => {
   const isMobile = useMediaQuery("(max-width:600px)");
 
   return (

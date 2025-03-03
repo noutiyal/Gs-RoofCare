@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import {
   Container,
   Typography,
@@ -114,11 +114,13 @@ function Homepage() {
     message: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     console.log(formData, "hjgjvj");
@@ -136,7 +138,7 @@ function Homepage() {
         "9zuVy_fCw12NxgbGV" // EmailJS public key
       )
       .then(
-        (response) => {
+        () => {
           alert("Message sent successfully!");
           setFormData({ name: "", contact: "", email: "", message: "" }); // Clear form after successful send
         },
@@ -326,7 +328,7 @@ function Homepage() {
                     sx={{ display: "flex", alignItems: "center", gap: 1 }}
                   >
                     <CheckCircleIcon sx={{ color: "#3e767e" }} />
-                    UPVCFascia's,Soffits And Guttering
+                    UPVCFascias,Soffits And Guttering
                   </Typography>
                 </Grid>
               </Grid>
@@ -498,7 +500,7 @@ function Homepage() {
         </Box>
       </Box>
 
-      <div maxWidth="lg" sx={{ py: 5 }}>
+      <div>
         <Typography
           variant="h3"
           fontWeight={700}
