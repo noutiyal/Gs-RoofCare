@@ -160,7 +160,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             href="tel:+9876567890"
             style={{ color: "white", textDecoration: "none" }}
           >
-            +9876567890
+            +442045724375
+            +447301000160
           </a>
         </Typography>
       </Box>
