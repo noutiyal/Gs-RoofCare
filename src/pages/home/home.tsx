@@ -196,7 +196,7 @@ function Homepage() {
           priorities. Contact us today for expert roofing solutions in London
           and the surrounding areas.
         </Typography>
-        <div>
+        <Box padding={"15px"}>
           <Grid
             marginTop={2}
             container
@@ -215,7 +215,7 @@ function Homepage() {
               </Grid>
             ))}
           </Grid>
-        </div>
+        </Box>
 
         {/* CTA Button with hover effects */}
         <Button
@@ -328,7 +328,14 @@ function Homepage() {
                     sx={{ display: "flex", alignItems: "center", gap: 1 }}
                   >
                     <CheckCircleIcon sx={{ color: "#3e767e" }} />
-                    UPVCFascias,Soffits And Guttering
+                    UPVC Fascias, Soffits
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                  >
+                    <CheckCircleIcon sx={{ color: "#3e767e" }} />
+                    Guttering
                   </Typography>
                 </Grid>
               </Grid>
